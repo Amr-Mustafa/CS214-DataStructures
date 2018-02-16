@@ -31,7 +31,7 @@ void insertEntry (int index, entryType* entry, SList* list)
 	pn->next = NULL;
 
 
-	if (list->size > 0) // list is not Empty
+	if (list->size > 0) // list is not empty
 	{
 		if (index == 0) // insertion at the head
 		{
@@ -230,12 +230,12 @@ SList subList (int startIndex, int endIndex, SList* list)
  * Postconditions:
  * 1) A boolean is returned indicating whether the given entry is contained in the list or not.
  */
-bool listContains (entryType* entry, SList* list)
+bool listContains (entryType* entry, SList* list, bool (*comp) (entryType a, entryType b))
 {
 	Node* iterator = list->head;
 	for (int i = 0, n = list->size; i < n; i++)
 	{
-		if (iterator->entry == entry) return true; // Definitely not generic xD
+		if ((*comp) (iterator->entry, entry)) return true;
 	}
 
 	return false;

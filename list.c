@@ -31,7 +31,7 @@ void insertEntry (int index, entryType* entry, SList* list)
 	pn->next = NULL;
 
 
-	if (list->size > 0) // list is not empty
+	if (list->size > 0) // list is not Empty
 	{
 		if (index == 0) // insertion at the head
 		{
